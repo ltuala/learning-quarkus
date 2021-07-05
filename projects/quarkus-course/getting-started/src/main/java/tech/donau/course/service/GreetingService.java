@@ -5,10 +5,16 @@ import java.util.UUID;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import tech.donau.course.service.config.GreetingConfig;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+
+import tech.donau.course.config.Base64Value;
+import tech.donau.course.config.GreetingConfig;
 
 @ApplicationScoped
 public class GreetingService {
+	
+	@ConfigProperty(name = "greeting.base64name")
+	Base64Value name;
 	
 	@Inject
 	GreetingConfig greetingConfig;
@@ -16,7 +22,7 @@ public class GreetingService {
 	public String sayHello() {
 		
 		return greetingConfig.getPrefix().orElse("_") 
-				+ greetingConfig.getName() 
+				+ name 
 				+ greetingConfig.getSuffix() 
 				+ " Your country is " + greetingConfig.getCountry().getName();
 	}

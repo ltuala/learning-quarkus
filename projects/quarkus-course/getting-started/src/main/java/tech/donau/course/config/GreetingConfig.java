@@ -1,4 +1,4 @@
-package tech.donau.course.service.config;
+package tech.donau.course.config;
 
 import java.util.Optional;
 
