@@ -21,10 +21,16 @@ public class GreetingResource {
 	@Inject
 	private GreetingService greetingService;
 	
+	@GET
+    @Produces(MediaType.TEXT_PLAIN)
+	public String hello() {
+		return greetingService.sayHello();
+	}
 	
     @GET
+    @Path("/{name}")
     @Produces(MediaType.TEXT_PLAIN)
-    public String hello(@QueryParam("name") String name) {
+    public String hello(@PathParam("name") String name) {
         return greetingService.sayHello(name);
     }
     
