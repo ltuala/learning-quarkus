@@ -1,7 +1,6 @@
 package tech.donau.course;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -13,8 +12,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import io.netty.util.internal.StringUtil;
-
-;
 
 @Path("/book")
 public class BookResource {
